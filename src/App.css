@@ -1,0 +1,11 @@
+.app { display: flex; flex-direction: column; height: 100vh; }
+.nav-bar { display: flex; align-items: center; justify-content: space-between; padding: 0 32px; height: 64px; background: var(--worley-navy); }
+.nav-brand { display: flex; align-items: center; gap: 12px; }
+.brand-logo { height: 28px; }
+.brand-divider { color: rgba(255,255,255,0.2); font-weight: 300; font-size: 20px; }
+.brand-sub { font-size: 13px; color: rgba(255,255,255,0.5); font-weight: 400; }
+.nav-links { display: flex; gap: 4px; }
+.nav-link { padding: 8px 20px; border-radius: 6px; text-decoration: none; color: rgba(255,255,255,0.6); font-size: 14px; font-weight: 500; transition: all 0.2s; }
+.nav-link:hover { color: white; background: rgba(255,255,255,0.1); }
+.nav-link.active { color: white; background: var(--worley-green); }
+.main-content { flex: 1; overflow: hidden; }

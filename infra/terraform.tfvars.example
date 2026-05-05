@@ -1,0 +1,18 @@
+# MSDN PoC deployment values (ai-lz-rg-msdn-mb44x / i40e suffix)
+
+subscription_id = "1784740a-1cf6-416b-b3db-bda6985970aa"
+
+# --- ALZ resource references ---
+resource_group_name            = "ai-lz-rg-msdn-mb44x"
+location                       = "australiaeast"
+container_app_environment_name = "ai-alz-container-app-env-i40e"
+container_registry_name        = "genaicri40e"
+
+# --- Frontend config ---
+frontend_image_tag = "cr27"
+
+tags = {
+  workload    = "uaip-frontend"
+  program     = "uaip"
+  environment = "poc-msdn"
+}

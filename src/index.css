@@ -1,0 +1,33 @@
+:root {
+  /* Platform palette — derived from worley.com */
+  --worley-navy: #0d2137;
+  --worley-navy-light: #143050;
+  --worley-teal: #1a3a54;
+  --worley-green: #00c389;
+  --worley-green-light: #00e6a0;
+  --worley-coral: #ff6b6b;
+  --worley-white: #ffffff;
+  --worley-off-white: #f5f7fa;
+  --worley-gray-100: #eef1f5;
+  --worley-gray-200: #dce1e8;
+  --worley-gray-300: #b0b8c4;
+  --worley-gray-600: #5a6577;
+  --worley-gray-800: #2c3e50;
+  --worley-text: #1a2332;
+  --worley-text-light: #5a6577;
+  --worley-azure: #0078d4;
+  --worley-aws: #ff9900;
+  --worley-governance: #7c3aed;
+  --worley-success: #00c389;
+  --worley-error: #ef4444;
+  --worley-shadow: 0 1px 3px rgba(0,0,0,0.08), 0 1px 2px rgba(0,0,0,0.06);
+  --worley-shadow-lg: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: var(--worley-off-white);
+  color: var(--worley-text);
+  -webkit-font-smoothing: antialiased;
+}

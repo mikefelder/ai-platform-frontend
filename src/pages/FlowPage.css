@@ -1,0 +1,59 @@
+.flow-page { display: flex; height: 100%; }
+.flow-sidebar { width: 340px; padding: 24px; border-right: 1px solid var(--worley-gray-200); background: white; overflow-y: auto; display: flex; flex-direction: column; gap: 20px; }
+.flow-sidebar h3 { color: var(--worley-navy); font-size: 18px; font-weight: 700; }
+.sidebar-desc { font-size: 13px; color: var(--worley-text-light); line-height: 1.5; }
+.runs-list { display: flex; flex-direction: column; gap: 4px; flex: 1; overflow-y: auto; }
+.runs-empty { font-size: 13px; color: var(--worley-gray-300); text-align: center; padding: 24px 0; }
+.run-item { display: flex; flex-direction: column; gap: 4px; padding: 10px 12px; border-radius: 8px; border: 1px solid var(--worley-gray-200); background: var(--worley-off-white); cursor: pointer; text-align: left; transition: all 0.15s; width: 100%; font-family: inherit; }
+.run-item:hover { border-color: var(--worley-green); background: white; }
+.run-item.active { border-color: var(--worley-green); background: white; box-shadow: 0 0 0 2px rgba(0,195,137,0.15); }
+.run-query { font-size: 13px; font-weight: 500; color: var(--worley-text); line-height: 1.4; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.run-meta { display: flex; align-items: center; gap: 8px; }
+.run-time { font-size: 11px; color: var(--worley-gray-300); }
+.run-tools { display: flex; gap: 3px; }
+.run-tool-tag { font-size: 9px; padding: 1px 6px; border-radius: 8px; font-weight: 600; }
+.run-tool-tag.azure { background: #e8f4fd; color: var(--worley-azure); }
+.run-tool-tag.aws { background: #fff4e5; color: #b36b00; }
+.run-tool-tag.gov { background: #f3e8ff; color: var(--worley-governance); }
+.legend { background: var(--worley-off-white); border-radius: 8px; padding: 14px; border: 1px solid var(--worley-gray-200); }
+.legend h4 { font-size: 11px; text-transform: uppercase; color: var(--worley-text-light); margin-bottom: 10px; letter-spacing: 1px; font-weight: 600; }
+.legend-item { display: flex; align-items: center; gap: 8px; font-size: 13px; padding: 4px 0; color: var(--worley-gray-800); }
+.legend-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+.node-inspector { background: var(--worley-off-white); border-radius: 8px; padding: 14px; border: 1px solid var(--worley-gray-200); }
+.node-inspector h4 { font-size: 14px; color: var(--worley-navy); margin-bottom: 8px; font-weight: 600; }
+.inspector-model { font-size: 12px; color: var(--worley-azure); font-weight: 600; margin-bottom: 8px; padding: 4px 8px; background: #e8f4fd; border-radius: 4px; display: inline-block; }
+.inspector-section { margin-top: 10px; }
+.inspector-section-title { font-size: 10px; text-transform: uppercase; letter-spacing: 0.5px; color: var(--worley-text-light); font-weight: 600; margin-bottom: 4px; }
+.inspector-detail { font-size: 12px; color: var(--worley-text-light); line-height: 1.6; max-height: 200px; overflow-y: auto; white-space: pre-wrap; }
+.inspector-json { font-size: 11px; font-family: 'SF Mono', 'Fira Code', monospace; color: var(--worley-navy); background: var(--worley-gray-100); padding: 8px; border-radius: 6px; overflow-x: auto; max-height: 250px; overflow-y: auto; white-space: pre; line-height: 1.4; margin: 0; }
+.flow-canvas { flex: 1; position: relative; background: var(--worley-off-white); }
+.empty-canvas { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; color: var(--worley-text-light); }
+.empty-icon { font-size: 48px; }
+.empty-canvas h3 { color: var(--worley-navy); font-size: 18px; }
+.empty-canvas p { max-width: 400px; text-align: center; font-size: 14px; line-height: 1.6; }
+
+/* Agent nodes — light corporate style */
+.agent-node { background: white; border: 2px solid var(--worley-gray-200); border-radius: 10px; min-width: 200px; max-width: 280px; font-size: 12px; overflow: hidden; transition: all 0.3s; box-shadow: var(--worley-shadow); }
+.agent-node.active { animation: pulse 1.5s infinite; }
+.agent-node.completed { opacity: 1; }
+.node-status.idle { color: var(--worley-gray-300); }
+.agent-node:has(.node-status.idle) { opacity: 0.4; filter: grayscale(0.6); }
+.node-header { display: flex; align-items: center; gap: 6px; padding: 10px 12px; font-weight: 600; color: var(--worley-navy); }
+.node-icon { font-size: 16px; }
+.node-label { flex: 1; }
+.node-cloud { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; }
+.node-model { padding: 3px 12px; font-size: 10px; color: var(--worley-azure); background: #e8f4fd; border-top: 1px solid var(--worley-gray-100); font-weight: 600; }
+.node-detail { padding: 8px 12px; font-size: 11px; color: var(--worley-text-light); line-height: 1.5; border-top: 1px solid var(--worley-gray-100); background: var(--worley-off-white); }
+.node-status { padding: 6px 12px; font-size: 10px; text-transform: uppercase; letter-spacing: 0.5px; border-top: 1px solid var(--worley-gray-100); font-weight: 600; }
+.node-status.completed { color: var(--worley-success); }
+.node-status.active { color: var(--worley-azure); }
+.node-status.error { color: var(--worley-error); }
+
+/* React Flow overrides for light theme */
+.react-flow__node { cursor: pointer; }
+.react-flow__edge-text { fill: var(--worley-text-light); font-size: 10px; }
+.react-flow__controls { background: white; border: 1px solid var(--worley-gray-200); border-radius: 8px; box-shadow: var(--worley-shadow); }
+.react-flow__controls button { background: white; border-color: var(--worley-gray-200); color: var(--worley-text); }
+.react-flow__controls button:hover { background: var(--worley-off-white); }
+
+@keyframes pulse { 0%, 100% { box-shadow: 0 0 0 0 rgba(0,195,137,0.3); } 50% { box-shadow: 0 0 20px 5px rgba(0,195,137,0.15); } }
