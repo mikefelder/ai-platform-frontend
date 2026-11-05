@@ -10,6 +10,8 @@ container_registry_name        = "genaicri40e"
 
 # --- Frontend config ---
 frontend_image_tag = "cr27"
+# Supply apim_subscription_key and frontend_htpasswd through TF_VAR_* or a
+# secure deployment variable store, never through this committed example.
 
 tags = {
   workload    = "uaip-frontend"
