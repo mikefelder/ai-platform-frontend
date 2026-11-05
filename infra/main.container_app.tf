@@ -35,22 +35,53 @@ resource "azurerm_container_app" "frontend" {
     identity = azurerm_user_assigned_identity.frontend.id
   }
 
+  secret {
+    name  = "apim-subscription-key"
+    value = var.apim_subscription_key
+  }
+
+  secret {
+    name  = "frontend-htpasswd"
+    value = var.frontend_htpasswd
+  }
+
   template {
     min_replicas = 1
     max_replicas = 1
+
+    volume {
+      name         = "frontend-auth"
+      storage_type = "EmptyDir"
+    }
 
     container {
       name   = "frontend"
       image  = "${data.azurerm_container_registry.alz.login_server}/uaip-frontend:${var.frontend_image_tag}"
       cpu    = 0.25
       memory = "0.5Gi"
+
+      env {
+        name        = "APIM_SUBSCRIPTION_KEY"
+        secret_name = "apim-subscription-key"
+      }
+
+      env {
+        name        = "FRONTEND_HTPASSWD"
+        secret_name = "frontend-htpasswd"
+      }
+
+      volume_mounts {
+        name = "frontend-auth"
+        path = "/run/secrets/frontend"
+      }
     }
   }
 
   ingress {
-    external_enabled = true
-    target_port      = 8080
-    transport        = "http"
+    external_enabled           = true
+    allow_insecure_connections = false
+    target_port                = 8080
+    transport                  = "http"
 
     traffic_weight {
       latest_revision = true

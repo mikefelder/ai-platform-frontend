@@ -38,6 +38,28 @@ variable "frontend_image_tag" {
   default     = "latest"
 }
 
+variable "apim_subscription_key" {
+  description = "Rotated APIM subscription key, injected into nginx at runtime. Never pass it as a build argument."
+  type        = string
+  sensitive   = true
+
+  validation {
+    condition     = can(regex("^[A-Za-z0-9_-]+$", var.apim_subscription_key))
+    error_message = "The APIM key must contain only letters, digits, underscores and hyphens."
+  }
+}
+
+variable "frontend_htpasswd" {
+  description = "Non-empty htpasswd file content for frontend HTTP Basic authentication. Use unique strong credentials and HTTPS ingress."
+  type        = string
+  sensitive   = true
+
+  validation {
+    condition     = length(trimspace(var.frontend_htpasswd)) > 0
+    error_message = "A non-empty htpasswd file is required."
+  }
+}
+
 variable "tags" {
   description = "Tags to apply to all resources."
   type        = map(string)

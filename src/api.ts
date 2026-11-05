@@ -1,11 +1,9 @@
 import type { ResponsesResponse, FlowStep } from './types';
 
 const API_BASE = import.meta.env.VITE_API_BASE || '/api';
-const API_KEY = import.meta.env.VITE_API_KEY || '';
 
 export async function sendMessage(input: string): Promise<ResponsesResponse> {
   const headers: Record<string, string> = { 'Content-Type': 'application/json' };
-  if (API_KEY) headers['Ocp-Apim-Subscription-Key'] = API_KEY;
 
   const controller = new AbortController();
   const timeout = setTimeout(() => controller.abort(), 300000); // 5 min timeout

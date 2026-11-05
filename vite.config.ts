@@ -2,7 +2,7 @@ import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 
 // Local dev: proxy /api/* to mock server on port 3001
-// Production: set VITE_API_BASE to the real APIM URL
+// Production: nginx authenticates /api and adds the server-only APIM key
 export default defineConfig({
   plugins: [react()],
   server: {
